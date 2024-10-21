@@ -1,0 +1,13 @@
+{{ range . }}
+  {{- if eq .type "md" }}
+    {{ "<!-- Render as Markdown -->" | safeHTML }}
+    {{ .content | markdownify }}
+    {{ "<!-- Done Markdown -->" | safeHTML }}
+  {{- else if eq .type "html" }}
+    {{ "<!-- Render as HTML -->" | safeHTML }}
+    {{ .content | safeHTML }}
+    {{ "<!-- Done as HTML -->" | safeHTML }}
+  {{- else }}
+    {{ errorf "Unsupported content type %s" .type }}
+  {{- end }}
+{{ end }}
