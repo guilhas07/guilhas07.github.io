@@ -1,0 +1,20 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// My custom elements
+.side-bar {
+  @include make-col-ready();
+  @include make-col(2, 12);
+
+  height: 100vh;
+  overflow-y: auto;
+
+  // On devices lower than lg, take full width
+  @include media-breakpoint-down(lg) {
+    @include make-col(12, 12);
+    height: auto;
+  }
+}
+
+.socials li {
+  padding: 0.5rem !important;
+}
