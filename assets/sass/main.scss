@@ -1,17 +1,53 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
+$my-primary: #10db00; // green
+$my-grey: #3f4a3c; // grey
+$my-white: #7c9971; // white
+
+//TODO: define more text colors
+
 // My custom elements
-.side-bar {
+// TODO: account for header size
+.my-side-bar {
   @include make-col-ready();
-  @include make-col(2, 12);
+  @include make-col(2);
+  // @include make-col(2, 12);
 
   height: 100vh;
   overflow-y: auto;
+  background-color: $my-grey;
 
   // On devices lower than lg, take full width
   @include media-breakpoint-down(lg) {
-    @include make-col(12, 12);
+    @include make-col(12);
     height: auto;
+  }
+}
+
+.my-brand {
+  @include make-col-ready();
+  @include make-col(2);
+  @include media-breakpoint-down(lg) {
+    @include make-col(12);
+    height: auto;
+  }
+}
+
+.my-nav {
+  .my-nav-el {
+    text-align: center !important;
+    background-color: $secondary-bg-subtle;
+
+    border-left: 2px solid $secondary !important;
+
+    &.active {
+      background-color: $primary-bg-subtle;
+      border-left: 3px solid $primary !important;
+    }
+
+    &:last-child {
+      border-right: 2px solid $secondary !important;
+    }
   }
 }
 

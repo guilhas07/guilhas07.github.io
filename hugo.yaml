@@ -1,7 +1,20 @@
-baseURL: "https://example.org/"
-languageCode: "en-us"
-title: "My New Hugo Site"
+baseURL: https://example.org/
+languageCode: en-us
+title: MyCodeJourney:443
 markup:
   goldmark:
     renderer:
       unsafe: true
+menu:
+  main:
+    - name: HOME
+      pageRef: /
+      weight: 1
+
+    - name: BLOG
+      pageRef: /blog
+      weight: 2
+
+    - name: CTF WRITEUPS
+      pageRef: /writeups
+      weight: 3
