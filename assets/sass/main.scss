@@ -1,5 +1,3 @@
-@import "../../node_modules/bootstrap/scss/bootstrap";
-
 $my-primary: #149414; // green
 // $my-secondary: #7c9971;
 $my-black: #000; // grey
@@ -11,6 +9,15 @@ $my-green: #033200;
 $my-green-secondary: #2b5329;
 $my-green-tertiary: #9ccc9c;
 $my-secondary: #9ccc9c;
+
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+
+// Override link color
+$link-color: $my-primary;
+$link-hover-color: lighten($my-primary, 10%);
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
 
 //TODO: define more text colors
 
