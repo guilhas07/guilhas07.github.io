@@ -1,14 +1,12 @@
 {{ define "main" }}
-  <main>
-    {{ .Content }}
+  {{ .Content }}
 
-    {{ $pages := where site.RegularPages "Type" "posts" }}
-    {{ $paginator := .Paginate $pages }}
+  {{ $pages := where site.RegularPages "Type" "posts" }}
+  {{ $paginator := .Paginate $pages }}
 
-    {{ range $paginator.Pages }}
-      <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ end }}
+  {{ range $paginator.Pages }}
+    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+  {{ end }}
 
-    {{ template "_internal/pagination.html" . }}
-  </main>
+  {{ template "_internal/pagination.html" . }}
 {{ end }}

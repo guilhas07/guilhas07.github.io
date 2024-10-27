@@ -11,8 +11,12 @@
           {{ partial "sidebar.html" . }}
         </aside>
         <div class="my-main">
-          <main>{{ block "main" . }}{{ end }}</main>
-          <footer>{{ partial "footer.html" . }}</footer>
+          <div class="h-100 d-flex flex-column align-items-start">
+            <main class="mb-auto">{{ block "main" . }}{{ end }}</main>
+            <footer class="w-100 text-center">
+              {{ partial "footer.html" . }}
+            </footer>
+          </div>
         </div>
       </div>
     </div>
