@@ -4,13 +4,13 @@
     {{ partial "head.html" . }}
   </head>
   <body>
-    <header class="sticky-top">{{ partial "header.html" . }}</header>
+    <header class="my-header sticky-top">{{ partial "header.html" . }}</header>
     <div class="container-fluid">
       <div class="row">
-        <aside class="my-side-bar pt-4 text-white">
+        <aside class="my-side-bar pt-4">
           {{ partial "sidebar.html" . }}
         </aside>
-        <div class="col">
+        <div class="my-main">
           <main>{{ block "main" . }}{{ end }}</main>
           <footer>{{ partial "footer.html" . }}</footer>
         </div>

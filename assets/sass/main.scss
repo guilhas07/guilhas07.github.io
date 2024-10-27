@@ -1,19 +1,112 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
-$my-primary: #10db00; // green
-$my-grey: #3f4a3c; // grey
-$my-white: #7c9971; // white
+$my-primary: #149414; // green
+// $my-secondary: #7c9971;
+$my-black: #000; // grey
+$my-grey: #181818; // grey
+$my-grey-2: #161616; // grey
+$my-white: #dbe3d8; // white
+
+$my-green: #033200;
+$my-green-secondary: #2b5329;
+$my-green-tertiary: #9ccc9c;
+$my-secondary: #9ccc9c;
 
 //TODO: define more text colors
 
+body {
+  background-color: $my-grey;
+  color: $my-white;
+}
+
+// START OF HEADER
+
+$font-header-size: 1.5rem;
+$header-size: $font-header-size * 2.17; // TODO: examine better this height relative to root font size
+
+.my-header {
+  // background-color: $my-secondary;
+  background-color: $my-black;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: bold;
+  // height: $header-size;
+  font-size: $font-header-size;
+}
+
+.my-brand {
+  @include make-col-ready();
+  @include make-col(2);
+
+  text-decoration: none;
+  white-space: nowrap;
+  // text-align: center !important;
+  padding: 0.25rem !important;
+
+  color: $my-white !important;
+
+  display: flex;
+  background-color: $my-grey;
+  align-items: center;
+
+  // Make padding equal to nav-elements
+  // padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+
+  // border-right: 2px solid $my-secondary !important;
+
+  @include media-breakpoint-down(lg) {
+    @include make-col(12);
+    height: auto;
+  }
+}
+
+.my-nav {
+  height: 100%;
+  .my-nav-el {
+    text-align: center !important;
+    background-color: $my-black;
+
+    color: $my-white;
+    border-left: 2px solid $my-grey !important;
+
+    &.active {
+      background-color: $my-grey;
+      border-left: 2px solid $my-primary !important;
+      color: $my-primary;
+
+      &:hover {
+        background-color: $my-grey;
+        color: lighten($my-primary, 10%);
+      }
+    }
+
+    &:last-child {
+      border-right: 2px solid $my-grey !important;
+    }
+
+    &:hover {
+      // color: $my-primary;
+      color: lighten($my-white, 10%);
+      background-color: lighten($my-black, 5%);
+    }
+  }
+}
+
+// END OF HEADER
+
 // My custom elements
-// TODO: account for header size
+
+// Define mixin for placing elements after header
+@mixin after-header() {
+  top: $header-size;
+  height: subtract(100vh, $header-size);
+}
+
 .my-side-bar {
   @include make-col-ready();
   @include make-col(2);
-  // @include make-col(2, 12);
 
-  height: 100vh;
+  @include after-header();
+
   overflow-y: auto;
   background-color: $my-grey;
 
@@ -24,31 +117,17 @@ $my-white: #7c9971; // white
   }
 }
 
-.my-brand {
-  @include make-col-ready();
-  @include make-col(2);
-  @include media-breakpoint-down(lg) {
-    @include make-col(12);
-    height: auto;
-  }
+.my-name {
+  font-family: "Roboto Condensed", sans-serif;
+  color: $my-white;
 }
 
-.my-nav {
-  .my-nav-el {
-    text-align: center !important;
-    background-color: $secondary-bg-subtle;
+.my-main {
+  @include make-col-ready();
+  @include make-col();
 
-    border-left: 2px solid $secondary !important;
-
-    &.active {
-      background-color: $primary-bg-subtle;
-      border-left: 3px solid $primary !important;
-    }
-
-    &:last-child {
-      border-right: 2px solid $secondary !important;
-    }
-  }
+  @include after-header();
+  border-left: 2px solid $my-primary !important;
 }
 
 .socials li {
