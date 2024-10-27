@@ -1,7 +1,11 @@
 {{/* When configuring navbar use its flexbox utilities */}}
 <nav class="navbar navbar-expand-lg p-0">
   <div class="container-fluid p-0 align-items-stretch">
-    <a class="my-brand" href="/">{{ .Site.Title }}</a>
+    {{ $parts := split .Site.Title ":" }}
+    <a class="my-brand" href="/">
+      <span class="my-host">{{ index $parts 0 }}:</span>
+      <span class="my-port">{{ index $parts 1 }}</span>
+    </a>
     <button
       class="navbar-toggler"
       type="button"

@@ -40,6 +40,14 @@ $header-size: $font-header-size * 2.17; // TODO: examine better this height rela
   font-size: $font-header-size;
 }
 
+.my-port {
+  color: $my-primary;
+}
+
+.my-host {
+  color: $my-white;
+}
+
 .my-brand {
   @include make-col-ready();
   @include make-col(2);
@@ -48,8 +56,6 @@ $header-size: $font-header-size * 2.17; // TODO: examine better this height rela
   white-space: nowrap;
   // text-align: center !important;
   padding: 0.25rem !important;
-
-  color: $my-white !important;
 
   display: flex;
   background-color: $my-grey;
@@ -117,6 +123,8 @@ $header-size: $font-header-size * 2.17; // TODO: examine better this height rela
   overflow-y: auto;
   background-color: $my-grey;
 
+  padding: 1.25rem;
+
   // On devices lower than lg, take full width
   @include media-breakpoint-down(lg) {
     @include make-col(12);
@@ -135,6 +143,7 @@ $header-size: $font-header-size * 2.17; // TODO: examine better this height rela
 
   @include after-header();
   border-left: 2px solid $my-primary !important;
+  padding: 1.25rem;
 }
 
 .socials li {
