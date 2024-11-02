@@ -18,3 +18,5 @@ menu:
     - name: CTF WRITEUPS
       pageRef: /writeups
       weight: 3
+
+disableKinds: ["taxonomy", "term", "RSS"]

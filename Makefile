@@ -1,4 +1,4 @@
 SHELL := /bin/bash
 
 dev:
-	hugo server -D --noHTTPCache --disableFastRender
+	hugo server -D --noHTTPCache --disableFastRender --ignoreCache
