@@ -20,16 +20,16 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="container-fluid container-lg ms-0 p-0 h-100">
         <div class="my-nav navbar-nav">
-          {{ range .Site.Menus.main }}
-            {{ $isActive := false }}
-            {{ $ariaCurrent := "teste" }}
-            {{ if $.IsMenuCurrent .Menu . }}
-              {{ $isActive = true }}
-              {{ $ariaCurrent = "page" }}
-            {{ else if $.HasMenuCurrent .Menu . }}
-              {{ $isActive = true }}
-              {{ $ariaCurrent = "true" }}
-            {{ end }}
+          {{- range .Site.Menus.main -}}
+            {{- $isActive := false }}
+            {{- $ariaCurrent := "teste" -}}
+            {{ if $.IsMenuCurrent .Menu . -}}
+              {{- $isActive = true -}}
+              {{- $ariaCurrent = "page" -}}
+            {{- else if $.HasMenuCurrent .Menu . -}}
+              {{- $isActive = true -}}
+              {{- $ariaCurrent = "true" -}}
+            {{- end -}}
 
 
             <a

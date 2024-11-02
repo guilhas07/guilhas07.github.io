@@ -2,25 +2,24 @@
 <meta name="viewport" content="width=device-width" />
 <title>{{ .Title }}</title>
 
-{{/* Local Bootstrap with custom Styles */}}
-
-{{ with resources.Get "sass/main.scss" }}
-  {{ $opts := dict "transpiler" "libsass" "targetPath" "css/style.css" }}
-  {{ with . | toCSS $opts }}
-    {{ if hugo.IsDevelopment }}
+{{/* Local Bootstrap with custom Styles */ -}}
+{{- with resources.Get "sass/main.scss" -}}
+  {{- $opts := dict "transpiler" "libsass" "targetPath" "css/style.css" -}}
+  {{- with . | toCSS $opts -}}
+    {{- if hugo.IsDevelopment -}}
       <link rel="stylesheet" href="{{ .RelPermalink }}" />
-    {{ else }}
-      {{ with . | minify | fingerprint }}
+    {{- else -}}
+      {{- with . | minify | fingerprint -}}
         <link
           rel="stylesheet"
           href="{{ .RelPermalink }}"
           integrity="{{ .Data.Integrity }}"
           crossorigin="anonymous"
         />
-      {{ end }}
-    {{ end }}
-  {{ end }}
-{{ end }}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
 
 {{/* Bootstrap Javascript CDN */}}
 <script
