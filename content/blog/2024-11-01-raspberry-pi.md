@@ -1,6 +1,9 @@
 ---
 date: "2024-11-01T19:10:09Z"
 title: "Raspberry Pi Setup"
+summary: |
+  My journey on my Raspberry Pi setup. Learn how to 
+  setup it up yourself!
 ---
 
 ## Intro

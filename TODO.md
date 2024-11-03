@@ -1,7 +1,7 @@
-colorscheme - [ ]
-footer - [ ]
+colorscheme - [x]
+footer - [x]
 maybe convert website title to image (svg??) - [ ]
-reduce sidebar height so it doesn't scroll - [ ]
+reduce sidebar height so it doesn't scroll - [x]
 
 render with minify to remove html comments - [ ]
 
