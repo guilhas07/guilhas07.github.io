@@ -10,11 +10,9 @@
     <header class="my-header sticky-top">{{ partial "header.html" . }}</header>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-lg-2 col-12">
-          <aside class="my-side-bar pt-4">
-            {{ partial "sidebar.html" . }}
-          </aside>
-        </div>
+        <aside class="my-side-bar pt-4">
+          {{ partial "sidebar.html" . }}
+        </aside>
         <div class="my-main-layout">
           <main class="mb-auto">
             {{ block "main" . }}{{ end }}

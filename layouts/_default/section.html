@@ -1,18 +1,17 @@
 {{ define "main" }}
   {{ .Content }}
-  <div class="row">
+  <div class="row p-2">
     {{ range .RegularPages }}
-      <div class="col-sm-4 mb-3">
-        <div class="card">
+      <a class="col-sm-4 mb-3 text-decoration-none" href="{{ .RelPermalink }}">
+        <div class="card h-100 my-btn btn text-start">
           <div class="card-body">
             <h5 class="card-title">{{ .Title }}</h5>
             <p class="card-text">
               {{ .Summary }}
             </p>
-            <a href="{{ .RelPermalink }}" class="btn btn-primary">Read More</a>
           </div>
         </div>
-      </div>
+      </a>
     {{ end }}
   </div>
 {{ end }}

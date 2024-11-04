@@ -16,8 +16,17 @@ $my-secondary: #9ccc9c;
 // Override link color
 $link-color: $my-primary;
 $link-hover-color: lighten($my-primary, 10%);
+$card-bg: $my-grey;
+$card-color: $my-white;
+$card-border-color: $my-primary;
+$btn-bg: $my-primary;
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
+
+.my-btn {
+  @include button-variant($my-grey, $my-primary);
+  // text-decoration: none !important;
+}
 
 //TODO: define more text colors
 
@@ -40,17 +49,26 @@ $header-size: $font-header-size * 2.17; // TODO: examine better this height rela
   font-size: $font-header-size;
 }
 
-.my-port {
-  color: $my-primary;
-}
-
-.my-host {
-  color: $my-white;
-}
-
 .my-brand {
   @include make-col-ready();
   @include make-col(2);
+
+  .my-port {
+    color: $my-primary;
+  }
+
+  .my-host {
+    color: $my-white;
+  }
+
+  &:hover {
+    .my-host {
+      color: lighten($my-white, 10%);
+    }
+    .my-port {
+      color: lighten($my-primary, 10%);
+    }
+  }
 
   text-decoration: none;
   white-space: nowrap;
@@ -58,7 +76,7 @@ $header-size: $font-header-size * 2.17; // TODO: examine better this height rela
   padding: 0.25rem !important;
 
   display: flex;
-  background-color: $my-grey;
+  background-color: $my-black;
   align-items: center;
 
   // Make padding equal to nav-elements
@@ -115,25 +133,31 @@ $header-size: $font-header-size * 2.17; // TODO: examine better this height rela
 }
 
 .my-side-bar {
-  // @include make-col-ready();
-  // @include make-col(2);
+  @include make-col-ready();
+  @include make-col(2);
 
   @include after-header();
 
   position: sticky;
   overflow-y: auto;
-  background-color: $my-grey;
+  background-color: $my-black;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
   padding: 1.25rem;
 
   // On devices lower than lg, take full width
   @include media-breakpoint-down(lg) {
     height: auto;
+    @include make-col(12);
   }
 }
 
 .my-name {
   font-family: "Roboto Condensed", sans-serif;
+  padding: 1rem;
   color: $my-white;
 }
 
@@ -162,7 +186,6 @@ $header-size: $font-header-size * 2.17; // TODO: examine better this height rela
 
 .my-content {
   width: 80%;
-  vertical-align: middle;
   display: inline-block;
 }
 
@@ -172,15 +195,27 @@ $header-size: $font-header-size * 2.17; // TODO: examine better this height rela
   vertical-align: top;
   display: inline-block;
   overflow-y: none;
+  font-size: 1.2rem;
+  text-decoration: none;
   ul {
     list-style: none;
     // target direct child
     li {
       a {
-        color: $my-primary;
+        // color: $my-secondary;
+        padding: 0.5rem;
+        text-decoration: none;
+        color: $my-green-secondary;
         &.active {
-          color: red;
+          color: $my-primary !important; // prevent hover from overriding
         }
+        &:hover {
+          color: lighten($my-green-secondary, 10%);
+        }
+      }
+      &:has(a.active) {
+        // Add styles to the <li> here when <a> is active
+        border-left: 2px solid $my-primary !important;
       }
     }
   }
