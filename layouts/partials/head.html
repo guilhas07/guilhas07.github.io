@@ -22,16 +22,30 @@
 {{- end -}}
 
 {{/* Bootstrap Javascript CDN */}}
-{{- if hugo.IsDevelopment -}}
-  <!-- <script src="/js/bootstrap.bundle.js"></script> -->
-  <script src="/js/script.js" defer></script>
-{{- else -}}
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"
-    defer
-  ></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+  crossorigin="anonymous"
+  defer
+></script>
+
+{{/* Load my custom javascript */}}
+{{ with resources.Get "js/main.js" }}
+  {{ if hugo.IsDevelopment }}
+    {{ with . | js.Build }}
+      <script src="{{ .RelPermalink }}" defer></script>
+    {{ end }}
+  {{ else }}
+    {{ $opts := dict "minify" true }}
+    {{ with . | js.Build $opts | fingerprint }}
+      <script
+        src="{{ .RelPermalink }}"
+        integrity="{{ .Data.Integrity }}"
+        crossorigin="anonymous"
+        defer
+      ></script>
+    {{ end }}
+  {{ end }}
 {{ end }}
 
 {{/* Google Fonts */}}
