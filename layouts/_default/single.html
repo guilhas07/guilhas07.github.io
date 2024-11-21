@@ -1,8 +1,28 @@
 {{ define "main" }}
-  <div class="my-content">
+  <div class="px-3">
+    <div class="container-fluid my-post-header sticky-top py-3">
+      {{ with .Prev }}
+        <a class="btn my-btn" href="{{ .RelPermalink }}"
+          >← Previous: {{ .Title }}</a
+        >
+      {{ else }}
+        <a class="btn my-disabled-btn disabled">No Previous</a>
+      {{ end }}
+
+
+      <a class="btn my-btn" href="{{ .RelPermalink }}">{{ .Title }}</a>
+
+      {{ with .Next }}
+        <a class="btn my-btn" href="{{ .RelPermalink }}"
+          >Next: {{ .Title }} →</a
+        >
+      {{ else }}
+        <a class="btn my-disabled-btn disabled">No Next</a>
+      {{ end }}
+    </div>
     {{ .Content }}
   </div>
-  <div class="my-toc">
+  <div class="my-toc align-self-start p-3">
     {{ .TableOfContents }}
   </div>
 {{ end }}

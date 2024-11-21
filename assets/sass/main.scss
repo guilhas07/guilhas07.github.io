@@ -1,8 +1,11 @@
 $my-primary: #149414; // green
 // $my-secondary: #7c9971;
+
 $my-black: #000; // grey
-$my-grey: #181818; // grey
 $my-grey-2: #161616; // grey
+$my-grey: #181818; // grey
+$my-grey-3: #303030; // grey
+
 $my-white: #dbe3d8; // white
 
 $my-green: #033200;
@@ -26,6 +29,11 @@ $btn-bg: $my-primary;
 .my-btn {
   @include button-variant($my-grey, $my-primary);
   // text-decoration: none !important;
+}
+
+.my-disabled-btn {
+  @include button-variant($my-grey, $my-grey-3);
+  color: $my-grey-3;
 }
 
 //TODO: define more text colors
@@ -167,7 +175,7 @@ $header-size: $font-header-size * 2.17; // TODO: examine better this height rela
 
   @include after-header();
   border-left: 2px solid $my-primary !important;
-  padding: 1.25rem;
+  // padding: 1.25rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -175,26 +183,23 @@ $header-size: $font-header-size * 2.17; // TODO: examine better this height rela
   overflow-y: auto;
 }
 
-// .my-main {
-//   // so footer gets placed at the bottom of the page
-//   margin-bottom: auto;
-// }
-
 .socials li {
   padding: 0.5rem !important;
 }
 
-.my-content {
-  width: 80%;
-  display: inline-block;
+.my-post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $my-grey;
 }
 
 .my-toc {
   position: sticky;
   top: 0;
   vertical-align: top;
-  display: inline-block;
-  overflow-y: none;
+  // display: inline-block;
+  //overflow-y: none;
   font-size: 1.2rem;
   text-decoration: none;
   ul {
@@ -203,6 +208,7 @@ $header-size: $font-header-size * 2.17; // TODO: examine better this height rela
     li {
       a {
         // color: $my-secondary;
+        display: block;
         padding: 0.5rem;
         text-decoration: none;
         color: $my-green-secondary;
