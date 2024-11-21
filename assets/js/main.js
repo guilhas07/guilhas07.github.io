@@ -2,11 +2,7 @@ let previousActive = null;
 const observer = new IntersectionObserver((entries) => {
   for (entry of entries) {
     // NOTE: intersection ratios are only 1 or 0
-    if (entry.isIntersecting) {
-      actives.set(entry.target.id, true);
-    } else {
-      actives.set(entry.target.id, false);
-    }
+    actives.set(entry.target.id, entry.isIntersecting);
   }
 
   // Find the first active entry
@@ -17,6 +13,7 @@ const observer = new IntersectionObserver((entries) => {
       found = true;
       previousActive = key;
       element.classList.add("active");
+      history.replaceState(null, null, `#${key}`);
     } else {
       element.classList.remove("active");
     }
