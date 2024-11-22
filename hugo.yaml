@@ -19,4 +19,8 @@ menu:
       pageRef: /writeups
       weight: 3
 
+    - name: RESUME
+      pageRef: /resume
+      weight: 4
+
 disableKinds: ["taxonomy", "term", "RSS"]
