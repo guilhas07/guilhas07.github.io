@@ -1,17 +1,20 @@
 {{ define "main" }}
-  {{ .Content }}
-  <div class="row p-2">
-    {{ range .RegularPages }}
-      <a class="col-sm-4 mb-3 text-decoration-none" href="{{ .RelPermalink }}">
-        <div class="card h-100 my-btn btn text-start">
-          <div class="card-body">
-            <h5 class="card-title">{{ .Title }}</h5>
-            <p class="card-text">
-              {{ .Summary }}
-            </p>
-          </div>
-        </div>
-      </a>
-    {{ end }}
-  </div>
+    {{ .Content }}
+    <div class="row p-2">
+        {{ range .RegularPages }}
+            <a
+                class="col-sm-4 mb-3 text-decoration-none"
+                href="{{ .RelPermalink }}"
+            >
+                <div class="card h-100 my-btn btn text-start">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ .Title }}</h5>
+                        <p class="card-text">
+                            {{ .Summary }}
+                        </p>
+                    </div>
+                </div>
+            </a>
+        {{ end }}
+    </div>
 {{ end }}

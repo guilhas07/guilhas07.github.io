@@ -1,39 +1,29 @@
 <!doctype html>
 <html lang="{{ site.Language.LanguageCode }}">
-  <head>
-    {{ partial "head.html" . }}
-  </head>
-  {{/* Spy on body in order to enable active link detection on Table of Content. By Default
-    hugo creates the Table of Contents with the id #TableOfContents
-  */}}
-  <body class="preload">
-    <header class="my-header sticky-top">{{ partial "header.html" . }}</header>
-    <div class="container-fluid">
-      <div class="row">
-        {{ if not .IsHome }}
-          <!-- <button -->
-          <!--   data-bs-toggle="collapse" -->
-          <!--   data-bs-target="#my-side-bar" -->
-          <!--   aria-expanded="true" -->
-          <!--   aria-controls="my-side-bar" -->
-          <!--   style="display:none;" -->
-          <!-- > -->
-          <!--   Toggle both elements -->
-          <!-- </button> -->
-          <!-- class="my-side-bar pt-4 collapse collapse-horizontal show" -->
-          <aside class="my-side-bar pt-4" id="my-side-bar">
-            {{ partial "sidebar.html" . }}
-          </aside>
-        {{ end }}
-        <div class="my-main-layout">
-          <main class="w-100 mb-auto">
-            {{ block "main" . }}{{ end }}
-          </main>
-          <footer class="w-100 text-center">
-            {{ partial "footer.html" . }}
-          </footer>
+    <head>
+        {{ partial "head.html" . }}
+    </head>
+    {{/* Spy on body in order to enable active link detection on Table of Content. By Default
+        hugo creates the Table of Contents with the id #TableOfContents
+    */}}
+    <body class="preload">
+        <header class="my-header sticky-top">
+            {{ partial "header.html" . }}
+        </header>
+        <div class="container-fluid">
+            <div class="row">
+                <aside class="my-side-bar pt-4" id="my-side-bar">
+                    {{ partial "sidebar.html" . }}
+                </aside>
+                <div class="my-main-layout">
+                    <main class="w-100 mb-auto">
+                        {{ block "main" . }}{{ end }}
+                    </main>
+                    <footer class="w-100 text-center">
+                        {{ partial "footer.html" . }}
+                    </footer>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </body>
+    </body>
 </html>

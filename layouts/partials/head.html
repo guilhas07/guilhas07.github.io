@@ -4,63 +4,63 @@
 
 {{/* Local Bootstrap with custom Styles */ -}}
 {{- with resources.Get "sass/main.scss" -}}
-  {{- $opts := dict "transpiler" "libsass" "targetPath" "css/style.css" -}}
-  {{- with . | toCSS $opts -}}
-    {{- if hugo.IsDevelopment -}}
-      <link rel="stylesheet" href="{{ .RelPermalink }}" />
-    {{- else -}}
-      {{- with . | minify | fingerprint -}}
-        <link
-          rel="stylesheet"
-          href="{{ .RelPermalink }}"
-          integrity="{{ .Data.Integrity }}"
-          crossorigin="anonymous"
-        />
-      {{- end -}}
+    {{- $opts := dict "transpiler" "libsass" "targetPath" "css/style.css" -}}
+    {{- with . | toCSS $opts -}}
+        {{- if hugo.IsDevelopment -}}
+            <link rel="stylesheet" href="{{ .RelPermalink }}" />
+        {{- else -}}
+            {{- with . | minify | fingerprint -}}
+                <link
+                    rel="stylesheet"
+                    href="{{ .RelPermalink }}"
+                    integrity="{{ .Data.Integrity }}"
+                    crossorigin="anonymous"
+                />
+            {{- end -}}
+        {{- end -}}
     {{- end -}}
-  {{- end -}}
 {{- end -}}
 
 {{/* Bootstrap Javascript CDN */}}
 <script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-  crossorigin="anonymous"
-  defer
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+    defer
 ></script>
 
 {{/* Load my custom javascript */}}
 {{ with resources.Get "js/main.js" }}
-  {{ if hugo.IsDevelopment }}
-    {{ with . | js.Build }}
-      <script src="{{ .RelPermalink }}" defer></script>
+    {{ if hugo.IsDevelopment }}
+        {{ with . | js.Build }}
+            <script src="{{ .RelPermalink }}" defer></script>
+        {{ end }}
+    {{ else }}
+        {{ $opts := dict "minify" true }}
+        {{ with . | js.Build $opts | fingerprint }}
+            <script
+                src="{{ .RelPermalink }}"
+                integrity="{{ .Data.Integrity }}"
+                crossorigin="anonymous"
+                defer
+            ></script>
+        {{ end }}
     {{ end }}
-  {{ else }}
-    {{ $opts := dict "minify" true }}
-    {{ with . | js.Build $opts | fingerprint }}
-      <script
-        src="{{ .RelPermalink }}"
-        integrity="{{ .Data.Integrity }}"
-        crossorigin="anonymous"
-        defer
-      ></script>
-    {{ end }}
-  {{ end }}
 {{ end }}
 
 {{/* Google Fonts */}}
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-  href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
-  rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet"
 />
 
 {{/* Font awesome */}}
 <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-  integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-  crossorigin="anonymous"
-  referrerpolicy="no-referrer"
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
 />

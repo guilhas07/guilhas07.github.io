@@ -1,48 +1,48 @@
 {{/* When configuring navbar use its flexbox utilities */}}
 <nav class="navbar navbar-expand-lg p-0">
-  <div class="container-fluid p-0 align-items-stretch">
-    {{ $parts := split .Site.Title ":" }}
-    <a class="my-brand" href="/">
-      <span class="my-host">{{ index $parts 0 }}:</span>
-      <span class="my-port">{{ index $parts 1 }}</span>
-    </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="container-fluid container-lg ms-0 p-0 h-100">
-        <div class="navbar-nav">
-          {{- range .Site.Menus.main -}}
-            {{- $isActive := false }}
-            {{- $ariaCurrent := "" -}}
-            {{ if $.IsMenuCurrent .Menu . -}}
-              {{- $isActive = true -}}
-              {{- $ariaCurrent = "page" -}}
-            {{- else if $.HasMenuCurrent .Menu . -}}
-              {{- $isActive = true -}}
-              {{- $ariaCurrent = "true" -}}
-            {{- end -}}
+    <div class="container-fluid p-0 align-items-stretch">
+        {{ $parts := split .Site.Title ":" }}
+        <a class="my-brand" href="/">
+            <span class="my-host">{{ index $parts 0 }}:</span>
+            <span class="my-port">{{ index $parts 1 }}</span>
+        </a>
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="container-fluid container-lg ms-0 p-0 h-100">
+                <div class="navbar-nav">
+                    {{- range .Site.Menus.main -}}
+                        {{- $isActive := false }}
+                        {{- $ariaCurrent := "" -}}
+                        {{ if $.IsMenuCurrent .Menu . -}}
+                            {{- $isActive = true -}}
+                            {{- $ariaCurrent = "page" -}}
+                        {{- else if $.HasMenuCurrent .Menu . -}}
+                            {{- $isActive = true -}}
+                            {{- $ariaCurrent = "true" -}}
+                        {{- end -}}
 
 
-            <a
-              class="my-nav-el nav-link col col-lg-3 {{ if $isActive -}}
-                active"
-                aria-current="{{- $ariaCurrent -}}
-              {{- end -}}"
-              href="{{ .URL }}"
-              >{{ .Name }}
-            </a>
-          {{ end }}
+                        <a
+                            class="my-nav-el nav-link col col-lg-3 {{ if $isActive -}}
+                                active"
+                                aria-current="{{- $ariaCurrent -}}
+                            {{- end -}}"
+                            href="{{ .URL }}"
+                            >{{ .Name }}
+                        </a>
+                    {{ end }}
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </nav>
