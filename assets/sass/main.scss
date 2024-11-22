@@ -41,6 +41,17 @@ $btn-bg: $my-primary;
 body {
   background-color: $my-grey;
   color: $my-white;
+  // NOTE: prevent animation from being triggered before page load
+  &.preload {
+    visibility: hidden;
+    * {
+      -webkit-transition: none !important;
+      -moz-transition: none !important;
+      -ms-transition: none !important;
+      -o-transition: none !important;
+      transition: none !important;
+    }
+  }
 }
 
 // START OF HEADER
@@ -142,19 +153,29 @@ $header-size: $font-header-size * 2.17; // TODO: examine better this height rela
 
 .my-side-bar {
   @include make-col-ready();
-  @include make-col(2);
-
   @include after-header();
 
   position: sticky;
   overflow-y: auto;
   background-color: $my-black;
 
-  display: flex;
   align-items: center;
   flex-direction: column;
+  display: flex;
 
-  padding: 1.25rem;
+  // NOTE: initial values before transition to show
+  width: 0;
+  padding: 0;
+  opacity: 0;
+
+  transition-property: all;
+  transition-duration: 0.3s;
+  transition-timing-function: linear;
+  &.show {
+    padding: 1.25rem;
+    opacity: 1;
+    @include make-col(2);
+  }
 
   // On devices lower than lg, take full width
   @include media-breakpoint-down(lg) {

@@ -6,13 +6,25 @@
   {{/* Spy on body in order to enable active link detection on Table of Content. By Default
     hugo creates the Table of Contents with the id #TableOfContents
   */}}
-  <body>
+  <body class="preload">
     <header class="my-header sticky-top">{{ partial "header.html" . }}</header>
     <div class="container-fluid">
       <div class="row">
-        <aside class="my-side-bar pt-4">
-          {{ partial "sidebar.html" . }}
-        </aside>
+        {{ if not .IsHome }}
+          <!-- <button -->
+          <!--   data-bs-toggle="collapse" -->
+          <!--   data-bs-target="#my-side-bar" -->
+          <!--   aria-expanded="true" -->
+          <!--   aria-controls="my-side-bar" -->
+          <!--   style="display:none;" -->
+          <!-- > -->
+          <!--   Toggle both elements -->
+          <!-- </button> -->
+          <!-- class="my-side-bar pt-4 collapse collapse-horizontal show" -->
+          <aside class="my-side-bar pt-4" id="my-side-bar">
+            {{ partial "sidebar.html" . }}
+          </aside>
+        {{ end }}
         <div class="my-main-layout">
           <main class="mb-auto d-flex">
             {{ block "main" . }}{{ end }}

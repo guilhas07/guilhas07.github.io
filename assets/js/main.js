@@ -1,3 +1,20 @@
+window.onload = function () {
+  let sidebar = document.querySelector(".my-side-bar");
+  if (sidebar) {
+    if (localStorage.getItem("animation") !== "true") {
+      // NOTE: remove preload class so it triggers animation
+      document.body.classList.remove("preload");
+      localStorage.setItem("animation", true);
+    }
+    sidebar.classList.add("show");
+    // NOTE: force reflow
+    void document.body.offsetHeight;
+  } else {
+    localStorage.setItem("animation", false);
+  }
+  document.body.classList.remove("preload");
+};
+
 let previousActive = null;
 const observer = new IntersectionObserver((entries) => {
   for (entry of entries) {
