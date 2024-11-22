@@ -1,6 +1,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width" />
-<title>{{ .Title }}|{{ .Site.Title }}</title>
+<title>
+    {{ if .Title }}
+        {{ .Title }}|{{ .Site.Title }}
+    {{ else }}
+        {{ .Site.Title }}
+    {{ end }}
+</title>
 
 {{/* Local Bootstrap with custom Styles */ -}}
 {{- with resources.Get "sass/main.scss" -}}
