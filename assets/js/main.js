@@ -1,32 +1,42 @@
 const currentPage = window.location.pathname;
 let animation = localStorage.getItem("animation") === "true";
 
-window.onload = function () {
+function hide() {
     let sidebar = document.querySelector(".my-side-bar");
+    // switching to home page (toggle off the sidebar with animation)
+    if (animation) {
+        sidebar.classList.add("show");
+        void document.body.offsetHeight;
+
+        document.body.classList.remove("preload");
+        sidebar.classList.remove("show");
+        localStorage.setItem("animation", false);
+    } else {
+        document.body.classList.remove("preload");
+    }
+}
+
+function show() {
+    let sidebar = document.querySelector(".my-side-bar");
+    if (animation) {
+        sidebar.classList.add("show");
+        void document.body.offsetHeight;
+        document.body.classList.remove("preload");
+    } else {
+        document.body.classList.remove("preload");
+        sidebar.classList.add("show");
+        localStorage.setItem("animation", true);
+    }
+}
+
+window.onload = function () {
     switch (currentPage) {
         case "/":
-            // switching to home page (toggle off the sidebar with animation)
-            if (animation) {
-                sidebar.classList.add("show");
-                void document.body.offsetHeight;
-
-                document.body.classList.remove("preload");
-                sidebar.classList.remove("show");
-                localStorage.setItem("animation", false);
-            } else {
-                document.body.classList.remove("preload");
-            }
+        case "/resume/":
+            hide();
             break;
         default:
-            if (animation) {
-                sidebar.classList.add("show");
-                void document.body.offsetHeight;
-                document.body.classList.remove("preload");
-            } else {
-                document.body.classList.remove("preload");
-                sidebar.classList.add("show");
-                localStorage.setItem("animation", true);
-            }
+            show();
             break;
     }
 };
