@@ -1,24 +1,28 @@
 {{/* When configuring navbar use its flexbox utilities */}}
 <nav class="navbar navbar-expand-lg p-0">
-    <div class="container-fluid p-0 align-items-stretch">
+    <div class="container-fluid p-0">
         {{ $parts := split .Site.Title ":" }}
-        <a class="my-brand" href="/">
-            <span class="my-host">{{ index $parts 0 }}:</span>
-            <span class="my-port">{{ index $parts 1 }}</span>
-        </a>
-        <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-        >
-            <span class="navbar-toggler-icon"></span>
-        </button>
+
+
+        <div class="my-brand">
+            <a class="p-2" href="/">
+                <span class="my-host">{{ index $parts 0 }}:</span>
+                <span class="my-port">{{ index $parts 1 }}</span>
+            </a>
+            <button
+                class="navbar-toggler p-2"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="container-fluid container-lg ms-0 p-0 h-100">
+            <div class="container-fluid container-lg ms-0 p-0">
                 <div class="navbar-nav">
                     {{- range .Site.Menus.main -}}
                         {{- $isActive := false }}
@@ -33,7 +37,7 @@
 
 
                         <a
-                            class="my-nav-el nav-link col col-lg-3 {{ if $isActive -}}
+                            class="my-nav-el nav-link col col-lg-3 d-flex align-items-center justify-content-center {{ if $isActive -}}
                                 active"
                                 aria-current="{{- $ariaCurrent -}}
                             {{- end -}}"
