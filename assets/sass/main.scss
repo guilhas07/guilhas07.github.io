@@ -178,7 +178,6 @@ $side-bar-size: 300px;
     @include make-col-ready();
     @include after-header();
 
-    min-width: $side-bar-size;
     position: sticky;
     overflow-y: auto;
     background-color: $my-black;
@@ -199,6 +198,7 @@ $side-bar-size: 300px;
         @include make-col(2);
         padding: 1.25rem;
         opacity: 1;
+        min-width: $side-bar-size;
 
         // On devices lower than lg, take full width
         @include media-breakpoint-down(lg) {
