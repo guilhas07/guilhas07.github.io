@@ -1,16 +1,16 @@
 const currentPage = window.location.pathname;
-let animation = localStorage.getItem("animation") === "true";
+let animation = sessionStorage.getItem("animation") === "true";
 
 function hide() {
     let sidebar = document.querySelector(".my-side-bar");
-    // switching to home page (toggle off the sidebar with animation)
+    // switching to home/resume page (toggle off the sidebar with animation)
     if (animation) {
         sidebar.classList.add("show");
         void document.body.offsetHeight;
 
         document.body.classList.remove("preload");
         sidebar.classList.remove("show");
-        localStorage.setItem("animation", false);
+        sessionStorage.setItem("animation", false);
     } else {
         document.body.classList.remove("preload");
     }
@@ -25,7 +25,7 @@ function show() {
     } else {
         document.body.classList.remove("preload");
         sidebar.classList.add("show");
-        localStorage.setItem("animation", true);
+        sessionStorage.setItem("animation", true);
     }
 }
 
