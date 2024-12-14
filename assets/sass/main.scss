@@ -198,7 +198,10 @@ $side-bar-size: 300px;
         @include make-col(2);
         padding: 1.25rem;
         opacity: 1;
-        min-width: $side-bar-size;
+
+        // NOTE: do math (use the `max` css function)
+        // instead of min-width to correctly animate from 0 to width
+        width: Max($side-bar-size, 16.66666667%);
 
         // On devices lower than lg, take full width
         @include media-breakpoint-down(lg) {
