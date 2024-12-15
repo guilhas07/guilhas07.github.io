@@ -1,0 +1,13 @@
+{{ define "main" }}
+    <div class="p-4">
+        <div class="p-3">
+            <a
+                class="btn my-btn d-block mx-auto w-50 fs-4"
+                href="/resume.pdf"
+                download="GuilhermeSoares-resume"
+                >Download</a
+            >
+        </div>
+        {{ .Content }}
+    </div>
+{{ end }}

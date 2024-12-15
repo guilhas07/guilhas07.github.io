@@ -27,6 +27,11 @@ $btn-bg: $my-primary;
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
 .my-btn {
+    @include button-variant($my-green-secondary, $my-green-secondary);
+    // text-decoration: none !important;
+}
+
+.my-btn-2 {
     @include button-variant($my-grey, $my-primary);
     // text-decoration: none !important;
 }
