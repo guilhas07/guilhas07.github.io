@@ -12,8 +12,8 @@
 
 
                 <a class="btn my-btn-2" href="{{ .RelPermalink }}"
-                    >{{ .Title }}</a
-                >
+                    >{{ .Title }}
+                </a>
 
                 {{ with .Next }}
                     <a class="btn my-btn" href="{{ .RelPermalink }}"
@@ -23,7 +23,16 @@
                     <a class="btn my-disabled-btn disabled">No Next</a>
                 {{ end }}
             </div>
-            {{ .Content }}
+
+            {{ with .GitInfo }}
+                <div class="p-2">
+                    <span class="last-mod">Last Modified:</span>
+                    <strong>{{ .AuthorDate.Format "2006-01-02" }}</strong>
+                </div>
+            {{ end }}
+            <div class="pt-3">
+                {{ .Content }}
+            </div>
         </div>
         <div class="my-toc align-self-start p-3">
             {{ .TableOfContents }}

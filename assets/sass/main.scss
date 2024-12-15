@@ -41,6 +41,11 @@ $btn-bg: $my-primary;
     color: $my-grey-3;
 }
 
+.last-mod {
+    // text-decoration: ligthen($my-grey-3, 10%);
+    text-decoration: underline;
+}
+
 //TODO: define more text colors
 
 body {

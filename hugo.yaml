@@ -2,25 +2,26 @@ baseURL: https://example.org/
 languageCode: en-us
 title: MyCodeJourney:443
 markup:
-  goldmark:
-    renderer:
-      unsafe: true
+    goldmark:
+        renderer:
+            unsafe: true
 menu:
-  main:
-    - name: HOME
-      pageRef: /
-      weight: 1
+    main:
+        - name: HOME
+          pageRef: /
+          weight: 1
 
-    - name: BLOG
-      pageRef: /blog
-      weight: 2
+        - name: BLOG
+          pageRef: /blog
+          weight: 2
 
-    - name: CTF WRITEUPS
-      pageRef: /writeups
-      weight: 3
+        - name: CTF WRITEUPS
+          pageRef: /writeups
+          weight: 3
 
-    - name: RESUME
-      pageRef: /resume
-      weight: 4
+        - name: RESUME
+          pageRef: /resume
+          weight: 4
 
 disableKinds: ["taxonomy", "term", "RSS"]
+enableGitInfo: true

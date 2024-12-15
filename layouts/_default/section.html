@@ -9,7 +9,12 @@
                 >
                     <div class="card h-100 my-btn btn text-start">
                         <div class="card-body">
-                            <h5 class="card-title">{{ .Title }}</h5>
+                            <h5 class="card-title d-inline">
+                                {{ .Title }}
+                            </h5>
+                            <span class="last-mod"
+                                >{{ .Date.Format "2006-01-02" }}</span
+                            >
                             <p class="card-text">
                                 {{ .Summary }}
                             </p>
