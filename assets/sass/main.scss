@@ -213,6 +213,12 @@ $side-bar-size: 300px;
     }
 }
 
+.my-profile-img {
+    @include media-breakpoint-down(lg) {
+        max-width: 50%;
+    }
+}
+
 .my-name {
     font-family: "Roboto Condensed", sans-serif;
     padding: 1rem;
