@@ -2,8 +2,8 @@
 date: "2024-11-01T19:10:09Z"
 title: "Raspberry Pi Setup"
 summary: |
-  My journey on my Raspberry Pi setup. Learn how to 
-  setup it up yourself!
+    My journey on my Raspberry Pi setup. Learn how to 
+    setup it up yourself!
 ---
 
 ## Intro
@@ -14,10 +14,10 @@ I've been spending too much time reading and lerking on subreddits like [r/homes
 it was about time. I decided to go with the most recent Raspberry Pi 5 8GB version, so I'm not very limited in terms of
 the amount of services that I'm able to run concurrently. Additionnaly to the Raspberry Pi you have to buy multiple things:
 
-- Power supply
-- Micro-SD and a Micro-SD reader
-- Micro HDMI
-- A protection Box
+-   Power supply
+-   Micro-SD and a Micro-SD reader
+-   Micro HDMI
+-   A protection Box
 
 ## Raspberry Pi Setup
 
@@ -81,8 +81,8 @@ ssh my-pi
 ```
 
 Finnally, now that you tested you can login through public key authentication you can disable password authentication. To do that you
-have to edit the file `/etc/ssh/sshd_config` in your raspberry file. Select the editor you are most familiar with, for me its`vim`, but for most beginners
-it would be `nano`. In the raspberry OS, the version of `vim`available its the vim-tiny under the`vi` command.
+have to edit the file `/etc/ssh/sshd_config` in your raspberry file. Select the editor you are most familiar with, for me its `vim`, but for most beginners
+it would be `nano`. In the raspberry OS, the version of `vim` available its the vim-tiny under the `vi` command.
 
 ```bash
 vi /etc/ssh/sshd_config
