@@ -61,7 +61,6 @@ $alert-colors: (
 );
 
 $prefix: "bs-";
-@debug $alert-colors;
 @each $state, $colors in $alert-colors {
     .alert-#{$state} {
         --#{$prefix}alert-color: #{$my-white};
