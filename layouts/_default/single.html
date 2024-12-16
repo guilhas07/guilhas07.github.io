@@ -1,41 +1,43 @@
 {{ define "main" }}
-    <div class="d-flex">
-        <div class="px-3 flex-grow-1">
-            <div class="container-fluid my-post-header sticky-top py-3">
-                {{ with .Prev }}
-                    <a class="btn my-btn" href="{{ .RelPermalink }}"
-                        >← Previous: {{ .Title }}</a
-                    >
-                {{ else }}
-                    <a class="btn my-disabled-btn disabled">No Previous</a>
-                {{ end }}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="px-3 col-10">
+                <div class="container-fluid my-post-header sticky-top py-3">
+                    {{ with .PrevInSection }}
+                        <a class="btn my-btn" href="{{ .RelPermalink }}"
+                            >← Previous: {{ .Title }}</a
+                        >
+                    {{ else }}
+                        <a class="btn my-disabled-btn disabled">No Previous</a>
+                    {{ end }}
 
 
-                <a class="btn my-btn-2" href="{{ .RelPermalink }}"
-                    >{{ .Title }}
-                </a>
+                    <a class="btn my-btn-2" href="{{ .RelPermalink }}"
+                        >{{ .Title }}
+                    </a>
 
-                {{ with .Next }}
-                    <a class="btn my-btn" href="{{ .RelPermalink }}"
-                        >Next: {{ .Title }} →</a
-                    >
-                {{ else }}
-                    <a class="btn my-disabled-btn disabled">No Next</a>
-                {{ end }}
-            </div>
-
-            {{ with .GitInfo }}
-                <div class="p-2">
-                    <span class="last-mod">Last Modified:</span>
-                    <strong>{{ .AuthorDate.Format "2006-01-02" }}</strong>
+                    {{ with .NextInSection }}
+                        <a class="btn my-btn" href="{{ .RelPermalink }}"
+                            >Next: {{ .Title }} →</a
+                        >
+                    {{ else }}
+                        <a class="btn my-disabled-btn disabled">No Next</a>
+                    {{ end }}
                 </div>
-            {{ end }}
-            <div class="pt-3">
-                {{ .Content }}
+
+                {{ with .GitInfo }}
+                    <div class="p-2">
+                        <span class="last-mod">Last Modified:</span>
+                        <strong>{{ .AuthorDate.Format "2006-01-02" }}</strong>
+                    </div>
+                {{ end }}
+                <div class="pt-3">
+                    {{ .Content }}
+                </div>
             </div>
-        </div>
-        <div class="my-toc align-self-start p-3">
-            {{ .TableOfContents }}
+            <div class="my-toc col-2">
+                {{ .TableOfContents }}
+            </div>
         </div>
     </div>
 {{ end }}

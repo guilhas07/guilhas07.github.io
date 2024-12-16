@@ -274,11 +274,12 @@ $side-bar-size: 300px;
 .my-toc {
     position: sticky;
     z-index: 1010;
-    vertical-align: top;
-    // display: inline-block;
-    //overflow-y: none;
     font-size: 1.2rem;
     text-decoration: none;
+    top: 0;
+    align-self: start; // NOTE: needed so sticky position works correctly
+    padding: 1rem;
+    padding-top: $header-size + 2rem;
     ul {
         list-style: none;
         // target direct child
@@ -311,7 +312,6 @@ $side-bar-size: 300px;
 }
 
 // Home
-
 .my-home {
     padding: 2rem;
     border: 2px solid $my-primary !important;
