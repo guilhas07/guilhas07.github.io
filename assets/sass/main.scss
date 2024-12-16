@@ -26,6 +26,51 @@ $btn-bg: $my-primary;
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
+$alert-colors: (
+    primary: (
+        color: $my-primary,
+    ),
+    secondary: (
+        color: $my-grey-3,
+    ),
+    caution: (
+        color: #fce9b3,
+        // #ffcc00,
+        // #333,
+    ),
+    important: (
+        color: #ffcccb,
+        // #ff0000,
+        // #333,
+    ),
+    note: (
+        color: #4052d6,
+        // #7fff00,
+        // #333,
+    ),
+    tip: (
+        color: $my-secondary,
+        // #1e90ff,
+        // #333,
+    ),
+    warning: (
+        color: #eed202,
+        // #ffdd57,
+        // #333,
+    ),
+);
+
+$prefix: "bs-";
+@debug $alert-colors;
+@each $state, $colors in $alert-colors {
+    .alert-#{$state} {
+        --#{$prefix}alert-color: #{$my-white};
+        --#{$prefix}alert-bg: #{$my-grey};
+        --#{$prefix}alert-border-color: #{map-get($colors, color)};
+        --#{$prefix}alert-link-color: #{map-get($colors, color)};
+    }
+}
+
 .my-btn {
     @include button-variant($my-green-secondary, $my-green-secondary);
     // text-decoration: none !important;
@@ -316,4 +361,8 @@ $side-bar-size: 300px;
     padding: 2rem;
     border: 2px solid $my-primary !important;
     display: flex;
+}
+
+.my-block {
+
 }
