@@ -54,3 +54,23 @@ title: "Resume"
     -   Skills: Node.js, Bootstrap, Git
 
 {{% /resume_columns %}}
+
+{{% resume_columns date="Fev. 24 - Jul. 24" %}}
+
+-   BestGC++
+
+    -   Developed a Web Application that selects the best Garbage Collector for a given Java application by profiling its execution.
+    -   Designed and implemented a live metrics dashboard to provide real-time insights into application performance, including Heap Usage, CPU utilization, and I/O metrics.
+    -   Skills: Java, Spring Boot, Javascript, Git
+
+{{% /resume_columns %}}
+
+{{% resume_columns date="Fev. 24 - Jul. 24" %}}
+
+-   BenchmarkGC
+
+    -   Designed and implemented a benchmarking tool to evaluate Java applications, collecting performance metrics and scoring all Java Garbage Collectors (GCs) based on execution time and GC pause duration.
+    -   Aggregated key Garbage Collector statistics, including pause count, total pause time, 90th percentile pause duration, and other metrics, providing users with actionable insights into application performance.
+    -   Skills: Python, Git
+
+{{% /resume_columns %}}
