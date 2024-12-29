@@ -1,7 +1,7 @@
 const currentPage = window.location.pathname;
 const BREAKPOINT_LG = 991.98;
 let animation = sessionStorage.getItem("animation") === "true";
-let showSideBar = localStorage.getItem("showSideBar") === "true";
+let showSideBar = (localStorage.getItem("showSideBar") ?? "true") === "true";
 let sidebar = document.querySelector(".my-sidebar");
 let toggler = document.getElementById("sidebar-toggler");
 toggler.addEventListener("click", toggle);
