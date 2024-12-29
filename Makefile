@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-HUGO_VERSION :=  0.139.4
+HUGO_VERSION :=  0.140.1
 
 dev:
 	hugo server -D --noHTTPCache --disableFastRender --ignoreCache
