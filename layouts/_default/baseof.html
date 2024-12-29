@@ -11,10 +11,12 @@
             {{ partial "header.html" . }}
         </header>
         <div class="container-fluid">
-            <div class="row">
-                <aside class="my-side-bar pt-4">
+            <div class="row flex-lg-row flex-column">
+                <!-- <div class="row"> -->
+                <aside class="my-sidebar">
                     {{ partial "sidebar.html" . }}
                 </aside>
+                <button id="sidebar-toggler" class="btn my-btn"></button>
                 <div class="my-main-layout">
                     <main class="w-100 mb-auto">
                         {{ block "main" . }}{{ end }}
