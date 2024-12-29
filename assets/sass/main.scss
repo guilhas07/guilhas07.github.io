@@ -216,10 +216,6 @@ $sidebar-size: 300px + $toggler-size;
     }
 }
 
-// END OF HEADER
-
-// My custom elements
-
 // Define mixin for placing elements after header
 @mixin after-header() {
     height: subtract(100vh, $header-size);
@@ -228,9 +224,9 @@ $sidebar-size: 300px + $toggler-size;
     // }
 }
 
-.my-email {
-    font-size: clamp(0.8rem, 0.75vw, 1rem);
-}
+// END OF HEADER
+
+// START OF SIDEBAR
 
 .my-sidebar {
     @include make-col-ready();
@@ -320,6 +316,10 @@ $sidebar-size: 300px + $toggler-size;
     }
 }
 
+.my-email {
+    font-size: clamp(0.8rem, 0.75vw, 1rem);
+}
+
 .my-profile-img {
     @include media-breakpoint-down(lg) {
         max-width: 50%;
@@ -335,6 +335,8 @@ $sidebar-size: 300px + $toggler-size;
     padding: 1rem;
     color: $my-white;
 }
+
+// END OF SIDEBAR
 
 .my-main-layout {
     @include make-col-ready();
@@ -353,9 +355,10 @@ $sidebar-size: 300px + $toggler-size;
     padding-top: 0;
 
     @include media-breakpoint-down(lg) {
-        // height: auto;
         @include make-col(12);
+        height: auto;
         overflow-y: visible;
+        min-height: subtract(100vh, add($header-size, $toggler-size));
     }
 }
 
@@ -411,7 +414,7 @@ $sidebar-size: 300px + $toggler-size;
     }
 
     @include media-breakpoint-down(lg) {
-        top: $header-size;
+        top: add($header-size, $toggler-size);
     }
 }
 
