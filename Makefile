@@ -6,8 +6,7 @@ dev:
 	hugo server -D --noHTTPCache --disableFastRender --ignoreCache
 
 update:
-	CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@latest
-	$(eval VERSION := $(shell hugo version | grep -oP '\d+\.\d+\.\d+'))
+	$(eval VERSION := $(shell CGO_ENABLED=1 go install -tags extended github.com/gohugoio/hugo@latest && hugo version | grep -oP '\d+\.\d+\.\d+'))
 	@echo New version: $(VERSION) Old Version: $(HUGO_VERSION)
 	@sed -i 's/\(^HUGO_VERSION := \).*/\1 $(VERSION)/' Makefile
 
