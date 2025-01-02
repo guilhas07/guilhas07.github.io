@@ -27,10 +27,10 @@ title: "Resume"
 
 {{% resume_columns date="Feb. 24 - Jul 24" %}}
 
--   Research Exchange (**Master's Thesis**), **Computer Science & Engineering** @ <u>Universitet I Oslo</u>
+-   Erasmus Traineeship (**Master's Thesis**), **Computer Science & Engineering** @ <u>Universitet i Oslo</u>
 
     -   Developed my Thesis: **BestGC++: Optimizing Garbage Collection Selection Through Benchmarking** focusing on improving
-        Garbage Collector Selection in **Java** Environments enhancing application performance.
+        Garbage Collector Selection in **Java** Environments to enhance application performance.
 
 {{% /resume_columns %}}
 
